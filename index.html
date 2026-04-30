@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI短视频创作工作室</title>
+    <style>
+      :root {
+        --bg: #0a0f1f;
+        --panel: #111a33;
+        --card: #162447;
+        --text: #e8f0ff;
+        --muted: #9fb4e0;
+        --accent: #46c2ff;
+        --accent-2: #7b61ff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 20%, #1a2f5f 0%, var(--bg) 45%),
+          radial-gradient(circle at 80% 0%, #22124a 0%, transparent 38%),
+          var(--bg);
+      }
+
+      .container {
+        width: min(1100px, 92%);
+        margin: 48px auto;
+        padding: 32px;
+        border: 1px solid rgba(70, 194, 255, 0.22);
+        border-radius: 18px;
+        background: linear-gradient(145deg, rgba(17, 26, 51, 0.92), rgba(10, 15, 31, 0.94));
+        box-shadow: 0 0 0 1px rgba(123, 97, 255, 0.15), 0 24px 40px rgba(0, 0, 0, 0.45);
+      }
+
+      h1 {
+        margin: 0 0 14px;
+        font-size: clamp(2rem, 4vw, 3rem);
+        letter-spacing: 0.06em;
+        color: #f5f9ff;
+        text-shadow: 0 0 16px rgba(70, 194, 255, 0.45);
+      }
+
+      .intro {
+        margin: 0 0 30px;
+        max-width: 760px;
+        font-size: 1.05rem;
+        line-height: 1.8;
+        color: var(--muted);
+      }
+
+      .works-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+      }
+
+      .work-card {
+        height: 150px;
+        border-radius: 14px;
+        border: 1px solid rgba(70, 194, 255, 0.25);
+        background: linear-gradient(160deg, rgba(22, 36, 71, 0.9), rgba(25, 19, 54, 0.9));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #b8ccf7;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .work-card::before {
+        content: "";
+        position: absolute;
+        inset: -40% 40% auto -40%;
+        width: 160px;
+        height: 160px;
+        background: radial-gradient(circle, rgba(70, 194, 255, 0.5), transparent 70%);
+      }
+
+      .work-card::after {
+        content: "";
+        position: absolute;
+        inset: auto -20% -30% auto;
+        width: 140px;
+        height: 140px;
+        background: radial-gradient(circle, rgba(123, 97, 255, 0.45), transparent 70%);
+      }
+
+      .work-card span {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="container">
+      <h1>AI短视频创作工作室</h1>
+      <p class="intro">我是视频剪辑师，擅长AI绘画和AI视频制作，专注于将创意想法快速转化为高质感、强传播力的短视频内容。</p>
+
+      <section class="works-grid" aria-label="作品展示">
+        <div class="work-card"><span>作品卡片 01</span></div>
+        <div class="work-card"><span>作品卡片 02</span></div>
+        <div class="work-card"><span>作品卡片 03</span></div>
+        <div class="work-card"><span>作品卡片 04</span></div>
+        <div class="work-card"><span>作品卡片 05</span></div>
+        <div class="work-card"><span>作品卡片 06</span></div>
+      </section>
+    </main>
+  </body>
+</html>
