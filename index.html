@@ -205,9 +205,31 @@
 4. 5秒结尾：行动引导（点赞/关注/评论），LOGO收尾。`;
       }
 
-      generateBtn.addEventListener("click", () => {
+      async function requestScriptFromServer(topic) {
+        const response = await fetch("/api/generate-script", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ topic })
+        });
+
+        if (!response.ok) {
+          throw new Error(`Server request failed: ${response.status}`);
+        }
+
+        const data = await response.json();
+        return data.script;
+      }
+
+      generateBtn.addEventListener("click", async () => {
         const topic = topicInput.value.trim();
-        scriptOutput.textContent = generateMockScript(topic);
+        scriptOutput.textContent = "正在生成中...";
+
+        try {
+          const script = await requestScriptFromServer(topic);
+          scriptOutput.textContent = script || generateMockScript(topic);
+        } catch (error) {
+          scriptOutput.textContent = generateMockScript(topic);
+        }
       });
     </script>
   </body>

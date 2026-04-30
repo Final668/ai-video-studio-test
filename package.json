@@ -1,0 +1,12 @@
+{
+  "name": "ai-video-studio-test",
+  "version": "1.0.0",
+  "description": "AI短视频自动生成项目（安全后端示例）",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
