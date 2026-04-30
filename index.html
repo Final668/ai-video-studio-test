@@ -55,6 +55,71 @@
         color: var(--muted);
       }
 
+      .script-tool {
+        margin: 0 0 32px;
+        padding: 20px;
+        border-radius: 14px;
+        border: 1px solid rgba(70, 194, 255, 0.25);
+        background: linear-gradient(160deg, rgba(22, 36, 71, 0.85), rgba(25, 19, 54, 0.85));
+      }
+
+      .script-tool h2 {
+        margin: 0 0 12px;
+        font-size: 1.15rem;
+        color: #dff2ff;
+      }
+
+      .script-form {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .script-input {
+        flex: 1;
+        min-width: 220px;
+        padding: 12px 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(159, 180, 224, 0.4);
+        background: rgba(10, 15, 31, 0.55);
+        color: var(--text);
+        outline: none;
+      }
+
+      .script-input:focus {
+        border-color: rgba(70, 194, 255, 0.75);
+        box-shadow: 0 0 0 2px rgba(70, 194, 255, 0.2);
+      }
+
+      .script-btn {
+        padding: 12px 20px;
+        border: none;
+        border-radius: 10px;
+        color: #f2f8ff;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        cursor: pointer;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      .script-btn:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 8px 20px rgba(70, 194, 255, 0.28);
+      }
+
+      .script-output {
+        margin-top: 14px;
+        padding: 14px;
+        border-radius: 10px;
+        border: 1px solid rgba(123, 97, 255, 0.35);
+        background: rgba(10, 15, 31, 0.45);
+        color: #cde0ff;
+        white-space: pre-line;
+        line-height: 1.7;
+        min-height: 64px;
+      }
+
       .works-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -105,6 +170,15 @@
       <h1>AI短视频创作工作室</h1>
       <p class="intro">我是视频剪辑师，擅长AI绘画和AI视频制作，专注于将创意想法快速转化为高质感、强传播力的短视频内容。</p>
 
+      <section class="script-tool" aria-label="脚本生成工具">
+        <h2>短视频脚本生成器</h2>
+        <div class="script-form">
+          <input id="topicInput" class="script-input" type="text" placeholder="请输入视频主题，例如：夏日咖啡店vlog" />
+          <button id="generateBtn" class="script-btn" type="button">生成脚本</button>
+        </div>
+        <div id="scriptOutput" class="script-output">点击“生成脚本”后，这里会显示内容。</div>
+      </section>
+
       <section class="works-grid" aria-label="作品展示">
         <div class="work-card"><span>作品卡片 01</span></div>
         <div class="work-card"><span>作品卡片 02</span></div>
@@ -114,5 +188,27 @@
         <div class="work-card"><span>作品卡片 06</span></div>
       </section>
     </main>
+
+    <script>
+      const topicInput = document.getElementById("topicInput");
+      const generateBtn = document.getElementById("generateBtn");
+      const scriptOutput = document.getElementById("scriptOutput");
+
+      function generateMockScript(topic) {
+        const title = topic || "城市夜景短片";
+        return `【主题】${title}
+【时长】30秒
+【镜头脚本】
+1. 3秒开场：快速特写 + 标题字幕，吸引注意。
+2. 12秒主体：展示3个核心画面，配合节奏卡点转场。
+3. 10秒亮点：突出前后对比或关键成果，加入一句金句旁白。
+4. 5秒结尾：行动引导（点赞/关注/评论），LOGO收尾。`;
+      }
+
+      generateBtn.addEventListener("click", () => {
+        const topic = topicInput.value.trim();
+        scriptOutput.textContent = generateMockScript(topic);
+      });
+    </script>
   </body>
 </html>
